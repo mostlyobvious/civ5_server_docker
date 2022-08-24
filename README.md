@@ -11,7 +11,7 @@ only runs at 2 FPS, so rendering doesn't consume the CPU so much (though it stil
 
 ## How do you use it
 
-1. First, Civilization 5 needs to be installed into the `civ5game` directory, as well as the
+1. First, Civilization 5 needs to be installed into the `civ5` directory, as well as the
    `CivilizationV_Server.exe` file from the Civ 5 SDK.  You can copy those files over yourself, or use provided script as
    `./install_civ5 <steam_username> <steam_password>`.
 

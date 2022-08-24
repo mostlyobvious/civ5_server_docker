@@ -1,14 +1,35 @@
 services:
-  server:
+  async-1:
     image: civ5server
     ports:
       - "127.0.0.1:10411:5901/tcp"
-      - "27016:27016/udp"
     volumes:
       - type: bind
-        source: civ5game
-        target: /root/civ5game  
+        source: civ5
+        target: /root/civ5
       - type: bind
-        source: civ5save
+        source: games/async-1
+        target: "/root/My Games/Sid Meier's Civilization 5"
+  async-2:
+    image: civ5server
+    ports:
+      - "127.0.0.1:10412:5901/tcp"
+    volumes:
+      - type: bind
+        source: civ5
+        target: /root/civ5
+      - type: bind
+        source: games/async-2
+        target: "/root/My Games/Sid Meier's Civilization 5"
+  async-3:
+    image: civ5server
+    ports:
+      - "127.0.0.1:10413:5901/tcp"
+    volumes:
+      - type: bind
+        source: civ5
+        target: /root/civ5
+      - type: bind
+        source: games/async-3
         target: "/root/My Games/Sid Meier's Civilization 5"
   
