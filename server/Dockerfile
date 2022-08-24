@@ -167,36 +167,6 @@ RUN rm -rf /libstrangle
 # Make graphics look bad (less taxing on the CPU)
 COPY ["./GraphicsSettingsDX9.ini", "/root/My Games/Sid Meier\\'s Civilization 5/GraphicsSettingsDX9.ini"]
 
-
-# For testing software rendering
-# RUN dnf -y install glx-utils
-
-# Install python-based faux SMTP server
-RUN dnf -y install python3
-RUN pip3 install boto3 mail-parser
-RUN mkdir -p /usr/lib/smtp_honeytrap/
-COPY ./smtp_server.py /usr/lib/smtp_honeytrap/
-
-
-# Install telemetry system to transmit players who haven't taken their turn
-RUN dnf install -y inotify-tools sqlite
-RUN pip3 install awscli
-RUN aws configure set default.region us-east-2
-RUN mkdir -p /usr/lib/tx_player_turns/
-COPY ./tx_player_turns.bash /usr/lib/tx_player_turns/
-
-
-# Install telemetry system to transmit number of connected players
-RUN dnf install -y net-tools
-RUN mkdir -p /usr/lib/tx_players_connected/
-COPY ./tx_players_connected.bash /usr/lib/tx_players_connected/tx_players_connected.bash
-
-
-# Automatically backup the save files to S3
-RUN mkdir -p /usr/lib/saves_backup/
-COPY ./s3_backup.bash /usr/lib/saves_backup/s3_backup.bash
-
-# Add our list-of-stuff-to-execute
 COPY ./supervisord.conf /etc/supervisord.conf
 
 CMD /usr/bin/supervisord -c /etc/supervisord.conf
