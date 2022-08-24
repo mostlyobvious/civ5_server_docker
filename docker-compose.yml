@@ -1,0 +1,14 @@
+services:
+  server:
+    image: civ5server
+    ports:
+      - "127.0.0.1:10411:5901/tcp"
+      - "27016:27016/udp"
+    volumes:
+      - type: bind
+        source: civ5game
+        target: /root/civ5game  
+      - type: bind
+        source: civ5save
+        target: "/root/My Games/Sid Meier's Civilization 5"
+  
