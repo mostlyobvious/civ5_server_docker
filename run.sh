@@ -17,6 +17,6 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 docker run \
     --mount type=bind,source="$DIR/civ5game",target="/root/civ5game" \
     --mount type=bind,source="$DIR/civ5save",target="/root/My Games/Sid Meier's Civilization 5" \
-    -p 127.0.0.1:5900:5900/tcp \
+    -p 127.0.0.1:5901:5901/tcp \
     -p 27016:27016/udp \
     civ5server
