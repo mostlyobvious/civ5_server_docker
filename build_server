@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+cp "$DIR/server/GraphicsSettingsDX9.ini" "$DIR/civ5save/GraphicsSettingsDX9.ini"
+cp "$DIR/server/UserSettings.ini" 	 "$DIR/civ5save/UserSettings.ini"
+cp "$DIR/server/config.ini" 	         "$DIR/civ5save/config.ini"
+
+docker build -t civ5server "$DIR/server"

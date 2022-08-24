@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# Bail out if any command fails
-set -e
+#!/bin/bash -e
 
 # Check that a username/password was supplied
 if [ $# -ne 2 ]; then
