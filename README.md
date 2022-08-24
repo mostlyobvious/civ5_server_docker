@@ -31,7 +31,7 @@ only runs at 2 FPS, so rendering doesn't consume the CPU so much (though it stil
 
 5. Setup the game through the VNC connection, and hope that it works and people can connect.
 
-# Ports you might need to open/let through a firewall
+## Ports you might need to open/let through a firewall
 
 The 27016 UDP is the only port you need to allow incoming traffic through. 
 
