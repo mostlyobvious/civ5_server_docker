@@ -164,8 +164,6 @@ RUN chmod a+rw /libstrangle
 RUN cd /libstrangle && make && make install
 RUN rm -rf /libstrangle
 
-# Make graphics look bad (less taxing on the CPU)
-COPY ["./GraphicsSettingsDX9.ini", "/root/My Games/Sid Meier\\'s Civilization 5/GraphicsSettingsDX9.ini"]
 
 COPY ./supervisord.conf /etc/supervisord.conf
 
